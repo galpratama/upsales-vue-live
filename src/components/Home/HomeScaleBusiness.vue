@@ -14,7 +14,7 @@
           Scaling can be hard lorem ipsum due lack of resources and automated system for the company
         </p>
         <div class="flex flex-col gap-4 md:flex-row">
-          <a href="auth/sign-up.html" class="btn-primary !px-10"> Get Started </a>
+          <RouterLink :to="{ name: 'signup' }" class="btn-primary !px-10"> Get Started </RouterLink>
           <a href="#" class="border btn-white border-borderLight !px-8"> Ask Demo </a>
         </div>
       </div>
