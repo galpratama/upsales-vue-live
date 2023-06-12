@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import { useSidebarStore } from '@/stores/sidebar'
+import { defineProps } from 'vue'
+
+const sidebarStore = useSidebarStore()
 const props = defineProps<{
   isDashboard?: boolean
 }>()
@@ -8,7 +12,12 @@ const props = defineProps<{
   <!-- START: Top Bar -->
   <nav class="flex items-center lg:justify-between mb-[30px] gap-4">
     <!-- Mobile Sidebar Toggler -->
-    <a href="javascript:void(0)" class="w-6 h-6 mobile-tablet" id="navbarTogglerHead">
+    <a
+      href="javascript:void(0)"
+      class="w-6 h-6 mobile-tablet"
+      id="navbarTogglerHead"
+      @click="sidebarStore.toggle()"
+    >
       <img src="@/assets/svg/ic-hamburger.svg" class="invert" alt="" />
     </a>
     <header class="text-dark" v-if="props.isDashboard">
