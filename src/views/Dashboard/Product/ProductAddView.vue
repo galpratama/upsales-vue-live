@@ -128,9 +128,9 @@ function uploadPhotos(e: any) {
           </div>
         </div>
       </div>
-      <a href="@/pages/dashboard/products/index.html" class="btn-primary mt-[30px]">
+      <RouterLink :to="{ name: 'dashboard-product-index' }" class="btn-primary mt-[30px]">
         Save Product
-      </a>
+      </RouterLink>
     </form>
   </section>
 </template>

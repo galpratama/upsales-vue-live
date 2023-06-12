@@ -4,14 +4,12 @@
     <h1 class="text-2xl md:text-[32px] md:leading-9 font-bold">#18092</h1>
     <ul class="inline-flex items-center mt-1 md:mt-2" id="breadcrumbLink">
       <li>
-        <a href="@/pages/dashboard/transactions/index.html" class="text-base text-dark">
+        <RouterLink :to="{ name: 'dashboard-transaction-index' }" class="text-base text-dark">
           My Transactions
-        </a>
+        </RouterLink>
       </li>
       <li>
-        <a href="@/pages/dashboard/transactions/details.html" class="text-base text-dark">
-          Details
-        </a>
+        <a href="#" class="text-base text-dark"> Details </a>
       </li>
     </ul>
   </header>

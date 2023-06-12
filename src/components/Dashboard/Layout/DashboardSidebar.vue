@@ -66,14 +66,14 @@ const props = defineProps<{
             />
             Products
           </RouterLink>
-          <a href="@/pages/dashboard/transactions/index-no-data.html" class="group dashboard-link">
+          <RouterLink :to="{ name: 'dashboard-transaction-index' }" class="group dashboard-link">
             <img
               src="@/assets/svg/ic-cart.svg"
               class="transition-all group-hover:filter-white group-[.is-active]:filter-white"
               alt=""
             />
             Transactions
-          </a>
+          </RouterLink>
           <a href="#" class="group dashboard-link">
             <img
               src="@/assets/svg/ic-people.svg"
@@ -146,14 +146,14 @@ const props = defineProps<{
             />
             Settings
           </a>
-          <a href="#" class="group dashboard-link">
+          <RouterLink :to="{ name: 'home' }" class="group dashboard-link">
             <img
               src="@/assets/svg/ic-logout.svg"
               class="transition-all group-hover:filter-white group-[.is-active]:filter-white"
               alt=""
             />
             Logout
-          </a>
+          </RouterLink>
         </div>
       </section>
     </div>

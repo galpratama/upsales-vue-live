@@ -83,7 +83,9 @@ function uploadPhotos(e: any) {
               />
             </div>
 
-            <a href="@/pages/dashboard/index.html" class="mt-auto btn-primary"> Update Product </a>
+            <RouterLink :to="{ name: 'dashboard' }" class="mt-auto btn-primary">
+              Update Product
+            </RouterLink>
           </form>
         </div>
       </div>

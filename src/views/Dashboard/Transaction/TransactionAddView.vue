@@ -4,12 +4,12 @@
     <h1 class="text-2xl md:text-[32px] md:leading-9 font-bold">Add New</h1>
     <ul class="inline-flex items-center mt-1 md:mt-2" id="breadcrumbLink">
       <li>
-        <a href="@/pages/dashboard/transactions/index.html" class="text-base text-dark">
+        <RouterLink :to="{ name: 'dashboard-transaction-index' }" class="text-base text-dark">
           My Transactions
-        </a>
+        </RouterLink>
       </li>
       <li>
-        <a href="@/pages/dashboard/transactions/add.html" class="text-base text-dark"> Add New </a>
+        <a href="#" class="text-base text-dark"> Add New </a>
       </li>
     </ul>
   </header>
@@ -112,9 +112,12 @@
           </div>
         </div>
       </div>
-      <a href="@/pages/dashboard/transactions/qr-code.html" class="btn-primary mt-[30px]">
+      <RouterLink
+        :to="{ name: 'dashboard-transaction-pay', params: { id: 1 } }"
+        class="btn-primary mt-[30px]"
+      >
         Checkout Now
-      </a>
+      </RouterLink>
     </form>
   </section>
 </template>

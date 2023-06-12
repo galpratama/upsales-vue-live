@@ -14,7 +14,12 @@
       <p class="text-[16px] leading-[26px] text-dark mb-5 mt-4">
         Continue to get your great items today that makes you happy
       </p>
-      <a href="@/pages/dashboard/transactions/details.html" class="btn-primary md:px-12"> Done </a>
+      <RouterLink
+        :to="{ name: 'dashboard-transaction-detail', params: { id: 1 } }"
+        class="btn-primary md:px-12"
+      >
+        Done
+      </RouterLink>
     </div>
   </div>
 </template>
