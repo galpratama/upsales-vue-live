@@ -31,7 +31,7 @@ const router = createRouter({
       component: AddProductView
     },
     {
-      path: '/add-product-photo',
+      path: '/add-product-photo/:id',
       name: 'add-product-photo',
       component: AddProductPhotoView
     },
