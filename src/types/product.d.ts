@@ -1,3 +1,5 @@
+import type Category from './category'
+
 declare interface Product {
   id?: number
   name?: string
@@ -5,6 +7,7 @@ declare interface Product {
   quantity?: number
   price?: number
   category_id?: number | null
+  category?: Category | null
 }
 
 export default Product

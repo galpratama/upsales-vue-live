@@ -5,7 +5,7 @@ import axios from 'axios'
 import type Category from '@/types/category'
 
 export const useCategoryStore = defineStore('category', () => {
-  const api_url = import.meta.env.VITE_API_URL
+  const API_URL = import.meta.env.VITE_API_URL
 
   // State
   const categories = ref<Category[]>([])
@@ -13,7 +13,7 @@ export const useCategoryStore = defineStore('category', () => {
   // Actions
   async function fetchCategories() {
     try {
-      const { data } = await axios.get(api_url + '/category')
+      const { data } = await axios.get(API_URL + '/category')
       categories.value = data.result.data
     } catch (error) {
       categories.value = []

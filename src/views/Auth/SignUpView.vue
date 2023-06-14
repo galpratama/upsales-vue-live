@@ -12,7 +12,7 @@ import { useCategoryStore } from '@/stores/category'
 
 import type Register from '@/types/register'
 
-const api_url = import.meta.env.VITE_API_URL
+const API_URL = import.meta.env.VITE_API_URL
 
 const router = useRouter()
 const categoryStore = useCategoryStore()
@@ -22,8 +22,8 @@ onMounted(() => {
   // Redirect to home page if user already logged in
   if (userStore.isLoggedIn) router.push({ name: 'dashboard' })
 
-  // if categories is empty, fetch categories
-  if (categoryStore.categories.length === 0) categoryStore.fetchCategories()
+  // Fetch categories
+  categoryStore.fetchCategories()
 })
 
 const form = ref<Register>({
@@ -36,12 +36,7 @@ const form = ref<Register>({
 async function register(): Promise<void> {
   try {
     // Send request to API
-    const response = await axios.post(api_url + '/register', {
-      name: form.value.name,
-      email: form.value.email,
-      password: form.value.password,
-      category_id: form.value.category_id
-    })
+    const response = await axios.post(API_URL + '/register', form.value)
 
     // Save token to local storage
     localStorage.setItem('access_token', response.data.result.access_token)

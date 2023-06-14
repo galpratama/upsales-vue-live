@@ -14,7 +14,7 @@ import { useCategoryStore } from '@/stores/category'
 
 import type Product from '@/types/product'
 
-const api_url = import.meta.env.VITE_API_URL
+const API_URL = import.meta.env.VITE_API_URL
 
 const categoryStore = useCategoryStore()
 const userStore = useUserStore()
@@ -24,8 +24,8 @@ onMounted(() => {
   userStore.fetchUser()
   // If user is not logged in, redirect to login page
   if (!userStore.isLoggedIn) router.push({ name: 'home' })
-  // if categories is empty, fetch categories
-  if (categoryStore.categories.length === 0) categoryStore.fetchCategories()
+  // Fetch categories
+  categoryStore.fetchCategories()
 })
 
 const form = ref<Product>({
@@ -39,21 +39,11 @@ const form = ref<Product>({
 async function addProduct(): Promise<void> {
   // Send request to API
   try {
-    const response = await axios.post(
-      api_url + '/product',
-      {
-        name: form.value.name,
-        sku: form.value.sku,
-        quantity: form.value.quantity,
-        price: form.value.price,
-        category_id: form.value.category_id
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('access_token')}`
-        }
+    const response = await axios.post(API_URL + '/product', form.value, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('access_token')}`
       }
-    )
+    })
 
     // If success, redirect to 'add-product-photo' page
     router.push({ name: 'add-product-photo', params: { id: response.data.result.id } })

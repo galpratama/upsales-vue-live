@@ -5,7 +5,7 @@ import axios from 'axios'
 import type User from '@/types/user'
 
 export const useUserStore = defineStore('user', () => {
-  const api_url = import.meta.env.VITE_API_URL
+  const API_URL = import.meta.env.VITE_API_URL
 
   // State
   const user = ref<User>({})
@@ -18,7 +18,7 @@ export const useUserStore = defineStore('user', () => {
   // Actions
   async function fetchUser() {
     try {
-      const { data } = await axios.get(api_url + '/user', {
+      const { data } = await axios.get(API_URL + '/user', {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('access_token')}`
         }
