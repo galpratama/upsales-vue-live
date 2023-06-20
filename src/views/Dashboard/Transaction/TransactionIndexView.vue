@@ -5,7 +5,7 @@ import TransactionIndexHeader from '@/components/Dashboard/Transaction/Transacti
 <template>
   <TransactionIndexHeader />
 
-  <section class="w-full min-h-[90vh] p-4 bg-subtleGrey rounded-2xl flex flex-col">
+  <section class="flex flex-col w-full p-4 bg-subtleGrey rounded-2xl">
     <TransactionTable />
   </section>
 </template>
