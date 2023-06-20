@@ -5,7 +5,7 @@ import ProductTable from '@/components/Dashboard/Product/ProductTable.vue'
 
 <template>
   <ProductIndexHeader />
-  <section class="w-full min-h-[90vh] p-4 bg-subtleGrey rounded-2xl flex flex-col">
+  <section class="flex flex-col w-full p-4 bg-subtleGrey rounded-2xl">
     <ProductTable />
   </section>
 </template>

@@ -1,20 +1,27 @@
+<script setup lang="ts">
+import type Product from '@/types/product'
+
+const props = defineProps<{
+  product: Product
+}>()
+</script>
 <template>
   <!-- Item -->
   <tr>
     <td class="inline-flex items-center gap-3">
       <img
-        src="@/assets/images/product-2.png"
+        :src="props.product.photos?.[0]?.full_path"
         class="w-[60px] h-[60px] rounded-2xl object-cover"
         alt=""
       />
       <div class="text-dark">
-        <h3 class="text-base font-semibold">Green Latte</h3>
-        <p class="mt-1 text-xs font-normal">Coffee</p>
+        <h3 class="text-base font-semibold">{{ props.product.name }}</h3>
+        <p class="mt-1 text-xs font-normal">{{ props.product.category?.name }}</p>
       </div>
     </td>
-    <td class="text-sm font-medium text-dark">Inactive</td>
-    <td class="text-sm font-medium text-dark">$55</td>
-    <td class="text-sm font-medium text-dark">113 qty</td>
+    <td class="text-sm font-medium text-dark">{{ props.product.status }}</td>
+    <td class="text-sm font-medium text-dark">${{ props.product.price }}</td>
+    <td class="text-sm font-medium text-dark">{{ props.product.quantity }} qty</td>
     <td>
       <div class="flex items-center gap-3">
         <!-- Edit -->
@@ -40,8 +47,8 @@
           />
         </a>
         <!-- Delete -->
-        <a
-          href="#"
+        <button
+          @click="$emit('deleteProduct', props.product.id)"
           class="group transition-all relative rounded-full bg-white hover:bg-dark p-[13px] text-dark hover:text-white min-w-max"
         >
           <img
@@ -49,7 +56,7 @@
             class="w-6 h-6 transition-all group-hover:filter-white"
             alt=""
           />
-        </a>
+        </button>
       </div>
     </td>
   </tr>
