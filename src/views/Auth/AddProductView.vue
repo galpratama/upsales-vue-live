@@ -9,7 +9,6 @@ const router = useRouter()
 import HomeNavbar from '@/components/Layout/HomeNavbar.vue'
 import SignUpHeader from '@/components/Layout/SignUpHeader.vue'
 
-import { useUserStore } from '@/stores/user'
 import { useCategoryStore } from '@/stores/category'
 
 import type Product from '@/types/product'
@@ -17,13 +16,8 @@ import type Product from '@/types/product'
 const API_URL = import.meta.env.VITE_API_URL
 
 const categoryStore = useCategoryStore()
-const userStore = useUserStore()
 
 onMounted(() => {
-  // Fetch user data
-  userStore.fetchUser()
-  // If user is not logged in, redirect to login page
-  if (!userStore.isLoggedIn) router.push({ name: 'home' })
   // Fetch categories
   categoryStore.fetchCategories()
 })

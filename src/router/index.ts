@@ -12,6 +12,11 @@ import TransactionIndexView from '@/views/Dashboard/Transaction/TransactionIndex
 import TransactionAddView from '@/views/Dashboard/Transaction/TransactionAddView.vue'
 import TransactionDetailView from '@/views/Dashboard/Transaction/TransactionDetailView.vue'
 import TransactionQRCodeView from '@/views/Dashboard/Transaction/TransactionQRCodeView.vue'
+import type { NavigationGuard } from 'vue-router'
+
+const requireAuth: NavigationGuard = (to, from, next) => {
+  localStorage.getItem('access_token') ? next() : next('/signin')
+}
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -34,16 +39,19 @@ const router = createRouter({
     {
       path: '/add-product',
       name: 'add-product',
-      component: AddProductView
+      component: AddProductView,
+      beforeEnter: requireAuth
     },
     {
       path: '/add-product-photo/:id',
       name: 'add-product-photo',
-      component: AddProductPhotoView
+      component: AddProductPhotoView,
+      beforeEnter: requireAuth
     },
     {
       path: '/dashboard',
       component: DashboardLayout,
+      beforeEnter: requireAuth,
       children: [
         {
           path: '',
