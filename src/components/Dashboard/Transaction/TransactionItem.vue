@@ -11,7 +11,7 @@ const props = defineProps<{
   <tr>
     <td class="inline-flex items-center gap-3">
       <img
-        src="@/assets/images/product-1.png"
+        :src="props.transaction.product?.photos?.[0]?.full_path"
         class="w-[60px] h-[60px] rounded-2xl object-cover"
         alt=""
       />
