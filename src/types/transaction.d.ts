@@ -13,6 +13,7 @@ declare interface Transaction {
   status?: string
   user?: User
   product?: Product
+  created_at?: string
 }
 
 export default Transaction

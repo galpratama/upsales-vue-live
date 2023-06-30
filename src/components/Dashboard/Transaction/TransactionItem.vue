@@ -48,8 +48,8 @@ const props = defineProps<{
           />
         </a>
         <!-- Show -->
-        <a
-          href="#"
+        <RouterLink
+          :to="{ name: 'dashboard-transaction-detail', params: { id: props.transaction.id } }"
           class="group transition-all relative rounded-full bg-white hover:bg-dark p-[13px] text-dark hover:text-white min-w-max"
         >
           <img
@@ -57,7 +57,7 @@ const props = defineProps<{
             class="w-6 h-6 transition-all group-hover:filter-white"
             alt=""
           />
-        </a>
+        </RouterLink>
         <!-- Delete -->
         <button
           @click="$emit('deleteTransaction', props.transaction.id)"
